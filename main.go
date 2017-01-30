@@ -1,7 +1,13 @@
 package main
 
-import "github.com/johnsudaar/http_loader/flooder"
+import (
+	"time"
+
+	"github.com/johnsudaar/http_loader/scenario"
+)
 
 func main() {
-	flooder.Launch("http://ensiie-test-1.scalingo.io/?min=4500", 100)
+	s := scenario.NewSinusScenario(20*time.Minute, 5*time.Minute, 75, 20)
+
+	s.Start()
 }
